@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻管理</title>
+    #include("console/common/assets-link.html")
+    <link rel="stylesheet" href="/assets/kindeditor-4.1.1/themes/default/default.css"/>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap-table/1.10.1/bootstrap-table.min.css">
+    <link href="http://cdn.bootcss.com/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="left">
+    #parse("console/common/left.html")
+</div>
+<div class="right">
+    <div class="container-fluid">
+        #parse("console/common/top.html")
+        #parse("console/news/edit.html")
+        <div id="list-div" class="row back-white padding-t-b-20 padding-l-r-30">
+            <div id="toolbar" class="row margin-l-r-0">
+                <div class="col-md-4">
+                    <!--<input class="form-control" type="text"/>-->
+                    <!--<span class="input-group-addon">-->
+                            <!--<span class="glyphicon glyphicon-th"></span>-->
+                    <!--</span>-->
+                    <div class="row">
+                        <div class="col-md-5 padding-l-r-0">
+                            <input type="text" class="datetimepicker form-control input-sm" name="beginTimeStr" placeholder="开始时间">
+                        </div>
+                        <div class="col-md-1 padding-l-r-0 tx-center">
+                            -
+                        </div>
+                        <div class="col-md-5 padding-l-r-0">
+                            <input type="text" class="datetimepicker form-control input-sm" name="endTimeStr" placeholder="结束时间">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" name="titleQry" class="form-control input-sm" placeholder="标题">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <button id="search" class="btn btn-primary btn-sm" type="button"><i
+                            class="glyphicon glyphicon-search"></i> 查询</button>
+                </div>
+                <div class="col-md-1 col-md-offset-4">
+                    <button onclick="add()" type="button" class="btn btn-primary btn-sm">
+                        <i class="glyphicon glyphicon-plus"></i> 新增
+                    </button>
+                </div>
+            </div>
+            <table id="table" class="table diy-table table-hover " style="border-bottom: 0; border-radius: 0;"
+                   data-show-refresh="false"
+                   data-show-toggle="false"
+                   data-show-columns="false"
+                   data-detail-view="false"
+                   data-detail-formatter="detailFormatter"
+                   data-minimum-count-columns="2"
+                   data-query-params="queryParams"
+                   data-show-pagination-switch="false"
+                   data-pagination="true"
+                   data-page-list="[10, 25, 50, 100, ALL]"
+                   data-show-footer="false"
+                   data-side-pagination="server"
+                   data-response-handler="responseHandler"
+                   data-sort-name="create_time"
+                   data-sort-order="desc"
+                   data-click-to-select="true"
+                   data-unique-id="id"></table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="http://cdn.bootcss.com/bootstrap-table/1.11.0/bootstrap-table.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap-table/1.11.0/locale/bootstrap-table-zh-CN.min.js"></script>
+
+<script src="http://cdn.bootcss.com/moment.js/2.17.0/moment.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap-datetimepicker/4.17.43/js/bootstrap-datetimepicker.min.js"></script>
+<!--<script src="http://cdn.bootcss.com/bootstrap-datetimepicker/4.17.43/js/bootstrap-datetimepicker.zh-CN.js"></script>-->
+<script charset="utf-8" src="/assets/kindeditor-4.1.1/kindeditor-min.js"></script>
+<script charset="utf-8" src="/assets/kindeditor-4.1.1/lang/zh_CN.js"></script>
+
+<script src="/assets/js/date-format.js"></script>
+<script src="/assets/js/common.js"></script>
+
+<script>
+    $(function () {
+        window.editor;
+        KindEditor.ready(function (K) {
+            window.editor = K.create('#content', {
+                resizeType: 1,
+                allowPreviewEmoticons: false,
+                uploadJson: '/console/common/uploadFile',
+                //fileManagerJson : '../jsp/file_manager_json.jsp',
+                allowFileManager: false,
+                //allowImageUpload: false,
+                items: [
+                    'source', '|', 'undo', 'redo', '|', 'cut', 'copy', 'paste',
+                    'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+                    'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+                    'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/',
+                    'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+                    'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image',
+                    'table', 'hr', 'baidumap', 'pagebreak',
+                    'anchor', 'link', 'unlink', '|', 'about'
+                ]
+            });
+        });
+    });
+</script>
+<script src="/assets/js/ajaxfileupload.js" type="text/javascript"></script>
+<script>
+    #include("console/news/news.js")
+</script>
+
+
+

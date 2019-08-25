@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>哈泥天空农场-新闻资讯</title>
+    #include("website/common/assets-link.html")
+    <link rel="stylesheet" href="/assets/css/website/index.css">
+    <link rel="stylesheet" href="/assets/css/website/child-page.css">
+
+</head>
+<body>
+#parse("website/common/top.html")
+<div class="container">
+
+    <div class="banner">
+        <img src="/assets/image/website/banner-common.jpg"/>
+    </div>
+    <div class="bg-blue">
+        <div class="child-center ha">
+            <div class="content">
+                <div class="title" style="width:100%;padding:0 10px;">$!news.title</div>
+                <div class="bottom-dashed padding-t-b-20">发布时间:&nbsp;$news.createTimeStr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源:&nbsp;#if($news.source and $news.source.length()>0) $news.source #else 哈泥天空农场 #end</div>
+                <div class="padding-t-b-20 ha">
+                    $!news.content
+                </div>
+            </div>
+        </div>
+    </div>
+    #parse("website/common/foot.html")
+</div>
+</body>
+</html>

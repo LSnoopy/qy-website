@@ -1,0 +1,23 @@
+<div class="logo">
+    <img src="/assets/image/logo.png" />
+</div>
+<div id="nav-banner">
+    <a href="/console/news/list">
+        <span class="glyphicon glyphicon-list-alt"></span>&nbsp;新闻管理
+    </a>
+    <a href="/console/sliderImg/list">
+        <span class="glyphicon glyphicon-picture"></span>&nbsp;轮播图管理
+    </a>
+    <a href="/console/pwd">
+        <span class="glyphicon glyphicon-user"></span>&nbsp;修改密码
+    </a>
+</div>
+<script>
+    $(function () {
+        window.onload = function highThis() {
+            highURL("nav-banner", "active", "a");
+        }
+    })
+</script>
+#include("console/common/footer.html");
+

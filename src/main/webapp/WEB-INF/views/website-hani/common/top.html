@@ -1,0 +1,170 @@
+<div class="h68"></div>
+<div class="top ha">
+    <div class="header ha ma">
+        <div class="logo fl">
+            <a href="/"><img src="/assets/image/website/logo.svg"/></a>
+        </div>
+        <div class="fr nav-banner" id="nav-banner1">
+            <a class="index-a">首页</a>
+            <a class="about-a">关于我们</a>
+            <a class="farmcase-a">农场案例</a>
+            <a class="cooperate-a">项目合作</a>
+            <a class="biz-nav-a">
+                <div class="biz-nav-div tx-center">业务合作</div>
+                <div class="sub-nav ha hide biz-nav-sub">
+                    <span class="tx-center habei-nav-span">哈蓓亲子游</span>
+                    <span class="tx-center biz-coop-nav-span">商务合作</span>
+                </div>
+            </a>
+            <a class="contact-a">联系我们</a>
+        </div>
+
+        <div class="fr nav-banner hide" id="nav-banner2">
+            <a class="index-a" onclick="goBackHome('#index')">首页</a>
+            <a class="about-a" onclick="goBackHome('#about')">关于我们</a>
+            <a class="farmcase-a" onclick="goBackHome('#farmcase')">农场案例</a>
+            <a class="cooperate-a" onclick="goBackHome('#cooperate')">项目合作</a>
+            <a class="biz-nav-a">
+                <div class="biz-nav-div" onclick="goBackHome('#biz-cooper')">业务合作</div>
+                <div class="sub-nav ha hide biz-nav-sub">
+                    <span class="tx-center habei-nav-span" onclick="goBackHome('#habei')">哈蓓亲子游</span>
+                    <span class="tx-center biz-coop-nav-span" onclick="goBackHome('#biz-cooperate')">商务合作</span>
+                </div>
+            </a>
+            <a class="contact-a" onclick="goBackHome('#contact')">联系我们</a>
+        </div>
+        <!--<ul>
+            <li class="tx-center"><a href="/index">首页</a></li>
+            <li class="tx-center"><a href="/farmcase/list">农场案例</a></li>
+            <li class="tx-center"><a href="/cooperation/cooperate">项目合作</a></li>
+            <li id="biz-nav-li" class="tx-center">
+                <a id="biz-nav" href="/business/habei">业务合作</a>
+                <div id="biz-nav-sub" class="sub-nav ha hide">
+                    <span onclick="javascript:window.location.href='/business/habei'" class="tx-center">哈蓓亲子游</span>
+                    <span onclick="javascript:window.location.href='/business/cooperate'" class="tx-center">商务合作</span>
+                </div>
+            </li>
+            <li class="tx-center"><a href="/about/us">关于我们</a></li>
+        </ul>-->
+    </div>
+</div>
+
+<script type="text/javascript" src="/assets/js/jquery.smooth-scroll.min.js"></script>
+<script>
+    //    var habeiUrl = '/business/habei';
+    //    var cooUrl = '/business/cooperate';
+    //    var currNav = 'index';
+    $(function () {
+
+        $('.biz-nav-a').mouseenter(function () {
+            $('.biz-nav-sub').slideDown();
+        }).mouseleave(function () {
+            $('.biz-nav-sub').slideUp();
+        });
+
+        if (window.location.pathname.indexOf("/news") > -1) {
+            $('#nav-banner1').hide();
+            $('#nav-banner2').show();
+            return;
+        }
+
+        var url = window.location.href;
+        if (url.lastIndexOf('#') > -1) {
+            console.info(url.substring(url.lastIndexOf('#')));
+            goScroll(url.substring(url.lastIndexOf('#')));
+        }
+
+        highNav();
+        $(window).scroll(function () {
+            highNav();
+        });
+
+        bindNavScroll();
+
+    });
+
+    function goBackHome(nav) {
+        window.location.href = '/' + nav;
+    }
+
+    function highNav() {
+        clearAllActive();
+        var scrollTop = $(window).scrollTop();
+        if (scrollTop >= 0 && scrollTop < 958) {
+            $('.index-a').addClass('active');
+        }
+        if (scrollTop >= 958 && scrollTop < 2555) {
+            $('.about-a').addClass('active');
+        }
+        if (scrollTop >= 2555 && scrollTop < 4186) {
+            $('.farmcase-a').addClass('active');
+        }
+        if (scrollTop >= 4186 && scrollTop < 5105) {
+            $('.cooperate-a').addClass('active');
+        }
+        if (scrollTop >= 5105 && scrollTop < 7288) {
+            $('.biz-nav-a').addClass('active');
+        }
+        if (scrollTop >= 7288) {
+            $('.contact-a').addClass('active');
+        }
+
+//        if (currNav == 'index') {
+//            $('.index-a').addClass('active');
+//        }
+//        if (currNav == 'about') {
+//            $('.about-a').addClass('active');
+//        }
+//        if (currNav == 'farmcase') {
+//            $('.farmcase-a').addClass('active');
+//        }
+//        if (currNav == 'cooperate') {
+//            $('.cooperate-a').addClass('active');
+//        }
+//        if (currNav == 'habei' || currNav == 'biz-cooperate') {
+//            $('.biz-nav-div').addClass('active');
+//        }
+//        if (currNav == 'contact') {
+//            $('.contact-a').addClass('active');
+//        }
+    }
+
+    function bindNavScroll() {
+        bindScroll($('.index-a'), '#index');
+        bindScroll($('.about-a'), '#about');
+        bindScroll($('.farmcase-a'), '#farmcase');
+        bindScroll($('.cooperate-a'), '#cooperate');
+        bindScroll($('.biz-nav-div'), '#biz-cooper');
+        bindScroll($('.habei-nav-span'), '#habei');
+        bindScroll($('.biz-coop-nav-span'), '#biz-cooperate');
+        bindScroll($('.contact-a'), '#contact');
+    }
+
+    function bindScroll(obj, target) {
+        console.info(obj);
+        obj.on('click', function () {
+            $.smoothScroll({
+                scrollTarget: target,
+//                speed: 600,
+                afterScroll: function () {
+                    clearAllActive();
+                    if (target.indexOf('biz') > -1 || target.indexOf('habei') > -1) {
+                        $('.biz-nav-a').addClass('active');
+                    }else{
+                        obj.addClass('active');
+                    }
+                }
+            });
+        });
+    }
+
+    function goScroll(target) {
+        $.smoothScroll({
+            scrollTarget: target
+        });
+    }
+
+    function clearAllActive() {
+        $('.nav-banner a').removeClass('active');
+    }
+</script>

@@ -1,0 +1,74 @@
+<div id="edit-div" class="row back-white padding-t-b-20 hide padding-l-r-20">
+
+    <div class="row">
+        <div class="col-md-1 back-list">
+            <i onclick="back()"
+               class="cp glyphicon glyphicon-arrow-left"></i>
+        </div>
+        <div class="col-md-11">
+            <form id="data-form">
+                <input type="hidden" name="id"/>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label class="control-label" for="title"><i class="cred">*</i> 标题: <span class="cred">(<i>＊</i>号为必填项)</span></label>
+                        <input type="text" class="form-control" name="title" id="title">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label class="control-label" for="title"> 来源: </label>
+                        <input type="text" placeholder="" class="form-control" name="source" id="source">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 form-group" id="showFlag-row">
+                        <!--<input type="radio" name="showFlag" value="1" checked="true">-->
+                        <!--显示-->
+                        <!--<input type="radio" name="showFlag" value="0">-->
+                        <!--隐藏-->
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label id="topFlag-row">
+                            <!--<input type="checkbox" name="topFlag" value="1"> 置顶-->
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 form-group cover-img">
+                        <ul>
+                            <li>封面图片(<span class="cred font-12">尺寸:240px*160px</span>):</li>
+                            <li>
+                                <input style="width:200px;" type="file" name="file" id="cover-img"/>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div id="cover-img-p" style="margin:-80px 0 0 20px;position: relative;" class="col-md-3 form-group cover-img">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 form-group">
+                        <label class="control-label" for="content"><i class="cred">*</i> 内容</label>
+                        <textarea name="content" id="content" rows="13"
+                                  style="width: 100%; height: 360px"></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div id="warningDiv"></div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-7 col-md-offset-4">
+            <a href="javascript:back()" class="btn btn-default">返回</a>
+            &nbsp;
+            <button id="submitNews" class="btn btn-primary">提交</button>
+            &nbsp;
+            <button id="preview" class="btn btn-primary">预览</button>
+        </div>
+    </div>
+</div>
+<div class="preview hide panel panel-default">
+</div>

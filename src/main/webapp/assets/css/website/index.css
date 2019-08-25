@@ -1,0 +1,245 @@
+/*轮播*/
+.slider {
+    min-height: 500px;
+    max-height: 600px;
+    /*margin-bottom: -10px;*/
+}
+
+/*农场资讯*/
+.news-box {
+    background: #70b4fc;
+    height: 490px;
+    color: #FFF;
+    /*padding-bottom: 40px;*/
+}
+
+.news-box .center {
+    position: absolute;
+    margin-left: 220px;
+}
+
+.content {
+    color: #FFF;
+}
+
+@media only screen and (max-width: 1281px) {
+    .slider {
+        margin-bottom: -12px;
+    }
+    .nivo-controlNav {
+        margin: -72px auto 0px auto !important;
+    }
+}
+
+@media only screen and (min-width: 1282px) and (max-width: 1366px) {
+    .slider {
+        margin-bottom: -10px;
+    }
+    .nivo-controlNav {
+        margin: -74px auto 0px auto !important;
+    }
+}
+
+.content .center {
+    width: 1000px;
+}
+
+.news-list {
+    width: 840px;
+}
+
+.news-box .left {
+    width: 244px;
+}
+
+.news-box .right {
+    width: 244px;
+}
+
+.news-box .left .balloon {
+    width: 88px;
+    margin-top: 140px;
+    /*background: url(/assets/image/website/balloon.svg) no-repeat;*/
+}
+
+.news-box .left .balloon img {
+    width: 88px;
+    /*height: 110px;*/
+}
+
+.news-box .left .cloud {
+    /*height: 150px;*/
+    margin-top: 38px;
+    float: right;
+}
+
+.news-box .left .cloud img {
+    width: 168px;
+}
+
+.news-box .right .cloud {
+    margin-top: 75px;
+    /*margin-left: -20px;*/
+    /*position: absolute;*/
+    /*z-index: 1001;*/
+}
+
+.news-box .right .cloud3 {
+    margin-top: 130px;
+    float: right;
+    margin-right: -10px;
+}
+
+.news-box .right .cloud img {
+    width: 126px;
+}
+
+.news-box .right .cloud3 img {
+    height: 126px;
+}
+
+.title-box {
+    width: 480px;
+    padding: 0 5px;
+    margin: 40px auto;
+    color: #FFF;
+    text-align: center;
+}
+
+.title {
+    padding: 0 5px;
+}
+
+.title .en {
+    font-size: 18px;
+}
+
+.title .zh {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/*.news-list {
+    width: 840px;
+}*/
+
+.news-list-box {
+    height: 317px;
+    background: rgba(255, 255, 255, 0.14);
+    /*opacity: 0.14;*/
+    padding: 40px 0 0 0;
+}
+
+.bottom-dashed {
+    border-bottom: 1px dashed #FFF;
+}
+
+.news-list li {
+    padding: 15px 0;
+    /*color: rgba(255, 255, 255, 0.7);*/
+    display: block;
+    /*font-size: 16px;*/
+}
+
+.news-list li img {
+    display: block;
+    float: left;
+    width: 240px;
+    height: 160px;
+    margin-right: 28px;
+    padding: 0;
+}
+
+.news-list li a {
+    /*color: rgba(255, 255, 255, 0.7);*/
+    /*font-size: 16px;*/
+    color: #FFF;
+}
+
+.news-list li a:hover {
+    color: rgba(255, 255, 255, 0.5)
+}
+
+.news-list li div.til {
+    /*font-size: 16px;*/
+}
+
+.news-list li div.content {
+    line-height: 28px;
+    padding: 18px 0 15px 0;
+    opacity: 0.7;
+}
+
+.news-list li:first-child {
+    height: 160px;
+    padding: 0;
+}
+
+.news-list li:last-child {
+}
+
+.news-more {
+    padding: 15px 0;
+}
+
+/*农场简介*/
+.intro {
+    /*height: 640px;*/
+    background: #a3ce4c;
+}
+
+/*.intro .title-box {
+    margin-bottom: 25px;
+}*/
+
+.intro .txt {
+    line-height: 30px;
+    padding-bottom: 15px;
+}
+
+.intro li {
+    /*width: 160px;*/
+    display: block;
+    margin-right: 8px;
+    float: left;
+}
+
+.intro li:last-child {
+    margin-right: 0;
+}
+
+.intro li .pic {
+    height: 160px;
+    width: 160px;
+}
+
+.intro li .alt {
+    height: 70px;
+    line-height: 70px;
+    font-size: 22px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.intro .pig {
+    height: 175px;
+    background: #a3ce4c url(/assets/image/website/pig.png) no-repeat center;
+    /*background-color: #a3ce4c;*/
+    /*background-image: url(/assets/image/website/pig.png);*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: center;*/
+    margin-top: 47px;
+}
+
+/*微信悬浮*/
+#wechatDiv {
+    width: 150px;
+    /*border: 1px solid #DDD;*/
+    background: white;
+    position: fixed;
+    /*left: 20px;*/
+    margin-left: 20px;
+    top: 88px;
+    z-index: 11000;
+    padding-top: 10px;
+}

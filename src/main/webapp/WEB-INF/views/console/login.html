@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    #include("console/common/assets-link.html")
+    <style>
+        .foot {
+            width: 400px;
+            margin: auto;
+            border-top: 1px solid #293846;
+            padding: 10px 20px;
+            color: #c5cfe0;
+            text-align: center
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid login">
+    <div class="row">
+        <form class="form-horizontal">
+            <fieldset>
+                <legend>网站后台管理</legend>
+                <div class="form-group">
+                    <label for="userName" class="col-md-2 control-label">用户名</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" name="userName" id="userName"
+                               placeholder="UserName" value="admin">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pwd" class="col-md-2 control-label">密码</label>
+                    <div class="col-md-10">
+                        <input type="password" class="form-control" id="pwd" name="pwd"
+                               placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10 col-md-offset-2">
+                        <button type="reset" class="btn btn-default">重置</button>
+                        <button type="button" onclick="login()" class="btn btn-primary">登录</button>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="row" id="warningDiv">
+            </div>
+        </form>
+    </div>
+    <div class="foot">
+        <strong>Copyright</strong> &copy;
+    </div>
+</div>
+
+</body>
+</html>
+<script src="/assets/js/common.js"></script>
+<script src="/assets/js/jquery.md5.js"></script>
+<script>
+
+    $(function () {
+        $('form').bind('keyup', function (event) {
+            if (event.keyCode == 13) {
+                login();
+            }
+        });
+    })
+
+    function login() {
+        var name = $.trim($('#userName').val());
+        var pwd = $.trim($('#pwd').val());
+        if (name == '') {
+            $('.form-group').eq(0).addClass('has-error');
+            return;
+        }
+        $('.form-group').eq(0).removeClass('has-error');
+        if (pwd == '') {
+            $('.form-group').eq(1).addClass('has-error');
+            return;
+        }
+        $('.form-group').eq(1).removeClass('has-error');
+
+        $.ajax({
+            url: '/console/login',
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                userName: name,
+                pwd: $.md5(pwd)
+            },
+            success: function (resp) {
+                if (!resp.success) {
+                    showErrorMsg(resp.msg);
+                    return;
+                }
+                window.location.href = "/console/news/list"
+            }
+        });
+    }
+
+</script>

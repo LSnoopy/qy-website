@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>哈泥农业科技-哈泥天空农场官网</title>
+    #include("website/common/assets-link.html")
+    <link rel="stylesheet" href="/assets/css/website/index.css">
+    <link rel="stylesheet" href="/assets/css/website/child-page.css">
+    <link href="https://cdn.bootcss.com/jquery-nivoslider/3.2/nivo-slider.min.css" rel="stylesheet">
+    <style>
+        .nivo-controlNav {
+            text-align: center;
+            /*padding: 0;*/
+            position: relative;
+            z-index: 1000;
+            margin: -60px auto 0px auto;
+            width: 100px;
+        }
+
+        .nivo-controlNav a {
+            cursor: pointer;
+            font-size: 30px;
+            /*font-size: 66px;*/
+            color: #FFF;
+            opacity: 0.5;
+        }
+
+        .nivo-controlNav a.active {
+            font-weight: 400;
+            color: #FFF;
+            opacity: 1;
+            font-size: 30px;
+            /*font-size: 66px;*/
+        }
+
+    </style>
+</head>
+<body>
+#parse("website/common/top.html")
+<div class="container">
+
+    <div id="index" name="index" class="inner-anchor"></div>
+    <div class="slider ha">
+        <div id="slider">
+            <img id="slide-img1" width="100%" src="/upload/default-slider.jpg" />
+            <!--<img id="slide-img2" src="" class="hide"/>-->
+            <!--<img id="slide-img3" src="" class="hide"/>-->
+            <!--<img id="slide-img4" src="" class="hide"/>-->
+        </div>
+    </div>
+    <div class="news-box content">
+        <div class="left fl">
+            <div class="balloon ma ha"><img src="/assets/image/website/balloon.svg"/></div>
+            <div class="cloud" ha><img src="/assets/image/website/cloud.svg"/></div>
+        </div>
+        <div class="center fl ma" align="center" >
+            <div class="title-box">
+                <span class="title"><span class="zh">农场资讯</span></span>
+                <span class="title"><span class="en">NEWS</span></span>
+            </div>
+            <div class="news-list-box">
+                <div class="news-list ma">
+                    <ul>
+                        <li>
+                            #if ($newsList)
+                                #if($newsList.size() > 0)
+                                    #set($id0=$!newsList.get(0).id)
+                                    #set($title0=$!newsList.get(0).title)
+                                    #set($time0=$!newsList.get(0).createTimeStr.substring(0,10))
+                                    #set($content0=$!newsList.get(0).contentTxt)
+                                    #set($cover0=$!newsList.get(0).coverImgUrl)
+                                #end
+                                #if($newsList.size() > 1)
+                                    #set($id1=$!newsList.get(1).id)
+                                    #set($title1=$!newsList.get(1).title)
+                                    #set($time1=$!newsList.get(1).createTimeStr.substring(0,10))
+                                #end
+                                #if($newsList.size() > 2)
+                                    #set($id2=$!newsList.get(2).id)
+                                    #set($title2=$!newsList.get(2).title)
+                                    #set($time2=$!newsList.get(2).createTimeStr.substring(0,10))
+                                #end
+                            #end
+
+                            #if($cover0 && $cover0.length() > 0)
+                            <img src="$!cover0"/>
+                            #end
+                            <div class="ha bottom-dashed" style="height: 160px;">
+                                <div class="til ha">
+                                    <div class="fl"><a href="/news/detail/$id0">#if($title0.length()>17) $!title0.substring(0,17)......#else $!title0 #end</a></div>
+                                    #if($time0 && $time0.length() > 0)
+                                    <div class="fr">发布时间: $!time0</div>
+                                    #else
+                                    &nbsp;
+                                    #end
+                                </div>
+                                <div class="content">
+                                    #if($content0.length()>112)
+                                    $!content0.substring(0,112) ......
+                                    #else
+                                    $!content0
+                                    #end
+                                </div>
+                            </div>
+                        </li>
+                        <li class="bottom-dashed ha">
+                            <div class="fl"><a href="/news/detail/$id1">$!title1</a></div>
+                            #if($time1 && $time1.length() > 0)
+                            <div class="fr">发布时间: $!time1</div>
+                            #else
+                            &nbsp;
+                            #end
+                        </li>
+                        <li class="bottom-dashed ha">
+                            <div class="fl"><a href="/news/detail/$id2">$!title2</a></div>
+                            #if($time2 && $time2.length() > 0)
+                            <div class="fr">发布时间: $!time2</div>
+                            #else
+                            &nbsp;
+                            #end
+                        </li>
+                        <li class="tx-center"><a href="/news/list">更多资讯&gt;</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="right fr">
+            <div class="cloud" ha><img src="/assets/image/website/cloud2.svg"/></div>
+            <div class="cloud3" ha><img src="/assets/image/website/cloud3.svg"/></div>
+        </div>
+    </div>
+
+    <!--关于我们-->
+    <div id="about" name="about" class="inner-anchor"></div>
+    <div class="intro content cb">
+        <div class="title-box cb ">
+            <span class="title"><span class="zh">关于我们</span></span>
+            <span class="title"><span class="en">ABOUT&nbsp;US</span></span>
+        </div>
+
+        <div class=" bg-w-014 w1000 ma">
+            <div class="margin-t-30 tx-center" align="center">
+                <span class="title"><span class="zh">农场简介</span></span>
+            </div>
+            <div class="l-h-30 padding20 cb t-i-30">
+                哈泥天空农场是一个以3-8周岁儿童为主角，以农场为载体的亲子自然教育项目。哈泥强调“learn by playing、learn by doing “的核心价值理念，以拟人化的原创卡通形象为故事主角，精心规划了各类农场情境项目，可以让孩子们与小动物嬉戏，与四季花草为伴，在快乐的玩耍中，充分释放孩子的自然天性，并通过各类生态认知、农耕渔猎体验、园艺手工艺等教育元素，以寓教于乐的方式提升儿童“手、脑、身、心”综合素质，收获爱与成就感。
+            </div>
+            <ul>
+                <li>
+                    <div class="pic"><img src="/assets/image/website/maiduileyuan.png"/></div>
+                    <div class="alt" style="background: #fca022;">麦堆乐园</div>
+                </li>
+                <li>
+                    <div class="pic"><img src="/assets/image/website/xingkongmuchang.png"/></div>
+                    <div class="alt" style="background: #3ca94e;">星空牧场</div>
+                </li>
+                <li>
+                    <div class="pic"><img src="/assets/image/website/tianyuanjingjichang.png"/></div>
+                    <div class="alt" style="background: #24b9e8;">田园竞技场</div>
+                </li>
+                <li>
+                    <div class="pic"><img src="/assets/image/website/shucaihuayuan.png"/></div>
+                    <div class="alt" style="background: #db6fb5;">蔬菜花园</div>
+                </li>
+                <li>
+                    <div class="pic"><img src="/assets/image/website/ziranketang.png"/></div>
+                    <div class="alt" style="background: #fca022;">自然课堂</div>
+                </li>
+                <li>
+                    <div class="pic"><img src="/assets/image/website/hanishiji.png"/></div>
+                    <div class="alt" style="background: #db6fb5;">哈泥市集</div>
+                </li>
+            </ul>
+        </div>
+        <div class="bg-green">
+            <div class="child-center ha">
+                <div class="content">
+                    <div class="title">核心优势</div>
+                    <div class="w260 ma second-title margin-t-30">提供一站式解决方案</div>
+                    <div class="dealMobileFontSize l-h-30 t-i-30 margin-t-20">
+                        有别于一般的公司，哈泥在开发屋顶农场项目方面更加专业，可以根据业主的需求提供项目策划、规划设计、项目代建、运营托管、咨询服务一站式服务。
+                    </div>
+                    <div class="margin-t-20 ma" style="width:760px;">
+                        <table>
+                            <tr>
+                                <td><div class="circular-box-about margin-l-r-20" style="margin-left:0;">项目策划</div></td>
+                                <td><div class="circular-box-about margin-l-r-20">规划设计</div></td>
+                                <td><div class="circular-box-about margin-l-r-20">项目代建</div></td>
+                                <td><div class="circular-box-about margin-l-r-20">运营托管</div></td>
+                                <td><div class="circular-box-about margin-l-r-20" style="margin-right:0;">咨询服务</div></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="w330 ma second-title margin-t-60">年轻而经验丰富的复合型团队</div>
+                    <div class="dealMobileFontSize l-h-30 t-i-30 margin-t-20">
+                        哈泥的创始团队成员主要来自于浙江大学、中国美院及阿里巴巴等，在项目开发、设计、建设及运营方面具备核心竞争力，在创意农业、儿童自然教育方面分别与浙江大学、浙江农林大学以及以色列KAMA等知名院校企业展开合作。
+                    </div>
+                    <div class="w280 ma second-title margin-t-60">知名的合作伙伴及客户</div>
+                    <div class="ma margin-t-20" style='width:837px;height:199px;background:url("/assets/image/website/about/logo.png")'></div>
+                </div>
+            </div>
+        </div>
+        <div class="pig cb"></div>
+    </div>
+
+
+    <!--农场案例-->
+    <div id="farmcase" name="farmcase" class="inner-anchor"></div>
+    <div class="bg-blue">
+        <div class="title-box cb">
+            <span class="title"><span class="zh">农场案例</span></span>
+            <span class="title"><span class="en">FARM&nbsp;CASE</span></span>
+        </div>
+        <!--<div class="h20"></div>-->
+        <div class="bg-green-2 cwhite w1000 ha ma margin-t-20">
+            <div class="ha padding-t-b-20 tx-center font-22 font-w-400">
+                 城西银泰哈泥天空农场
+            </div>
+            <div class="h660" style="background: url('/assets/image/website/farmcase/1.jpg');"></div>
+        </div>
+
+        <div class="bg-orange cwhite w1000 ha ma margin-t-40 margin-b-40">
+            <div class="ha padding-t-b-20 tx-center font-22 font-w-400">
+                西溪印象城哈泥天空农场
+            </div>
+            <div class="h660" style="background: url('/assets/image/website/farmcase/2.jpg');"></div>
+        </div>
+    </div>
+
+    <!--项目合作-->
+    <div id="cooperate" name="cooperate" class="inner-anchor"></div>
+    <div class="bg-pink">
+        <div class="title-box cb margin-b-0">
+            <span class="title"><span class="zh">项目合作</span></span>
+            <span class="title"><span class="en">PROJECT COOPERATION</span></span>
+        </div>
+        <div class="child-center ha">
+            <div id="pro-cooper" class="content">
+                <div class="title">哈泥天空农场代建联营合作</div>
+                <div class="margin-t-40 ha">
+                    <div class="circular-box ha fl">
+                        <img src="/assets/image/website/cooperation/1.svg"/>
+                        <span class="sub-title">项目踏勘及沟通接洽</span>
+                    </div>
+                    <div class="w80 tx-center fl margin-t-50">&hellip;&hellip;&hellip;&hellip;</div>
+                    <!--<div class="w100 tx-center fl margin-t-50">............</div>-->
+
+                    <div class="circular-box ha fl">
+                        <img src="/assets/image/website/cooperation/2.svg"/>
+                        <span class="sub-title">商务谈判及合同签订</span>
+                    </div>
+                    <div class="w80 tx-center fl margin-t-50">&hellip;&hellip;&hellip;&hellip;</div>
+                    <!--<div class="w100 tx-center fl margin-t-50">............</div>-->
+
+                    <div class="circular-box ha fl" >
+                        <img src="/assets/image/website/cooperation/3.svg"/>
+                        <span class="sub-title">出规划方案<br/>(项目策划、总<br/>平图、分区意向图)<br/>及效果图</span>
+                    </div>
+                    <div class="w80 tx-center fl margin-t-50" style="margin-left:4px;">&hellip;&hellip;&hellip;&hellip;</div>
+                    <!--<div class="w100 tx-center fl margin-t-50">............</div>-->
+
+                    <div class="circular-box ha fl">
+                        <img src="/assets/image/website/cooperation/4.svg"/>
+                        <span class="sub-title">出CAD细部设计、<br/>施工方案及工程清单</span>
+                    </div>
+                </div>
+
+                <div class="margin-t-40 ha margin-l-110">
+                    <div class="circular-box ha fl">
+                        <img src="/assets/image/website/cooperation/7.svg"/>
+                        <span class="sub-title">运营托管</span>
+                    </div>
+                    <div class="w80 tx-center fl margin-t-50 margin-l-r-10">&hellip;&hellip;&hellip;&hellip;</div>
+                    <!--<div class="w100 tx-center fl margin-t-50 margin-l-r-10">............</div>-->
+
+                    <div class="circular-box ha fl">
+                        <img src="/assets/image/website/cooperation/6.svg"/>
+                        <span class="sub-title">项目移交</span>
+                    </div>
+                    <div class="w80 tx-center fl margin-t-50 margin-l-r-10">&hellip;&hellip;&hellip;&hellip;</div>
+                    <!--<div class="w100 tx-center fl margin-t-50 margin-l-r-10">............</div>-->
+
+                    <div class="circular-box ha fl">
+                        <img src="/assets/image/website/cooperation/5.svg"/>
+                        <span class="sub-title">项目监理及竣工验收</span>
+                    </div>
+                    <div class="tx-center fl margin-t-50 margin-l-r-10">&hellip;&hellip;</div>
+                    <!--<div class="tx-center fl margin-t-50 margin-l-r-10">.........</div>-->
+                    <div class="tx-center fl v-txt" style="position: relative;margin-left:-14px;margin-top:0px;">&hellip;&hellip;&hellip;&hellip;</div>
+                    <!--<div class="tx-center fl v-txt" style="position: relative;margin-left:-13px;margin-top:1px">................</div>-->
+
+                </div>
+
+                <div class="title margin-t-74">哈泥天空农场直控加盟合作</div>
+                <div class="margin-t-40">
+                    <table>
+                        <tr>
+                            <td><div class="regular-box bg1 margin-l-r-10" style="margin-left:0;">加盟咨询</div></td>
+                            <td><div class="regular-box bg2 margin-l-r-10">选址审核</div></td>
+                            <td><div class="regular-box bg3 margin-l-r-10">意向签约</div></td>
+                            <td><div class="regular-box bg4 margin-l-r-10" style="margin-right:0;">农场设计</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class="regular-box bg5 margin-l-r-10" style="margin-left:0;">加盟签约</div></td>
+                            <td><div class="regular-box bg6 margin-l-r-10">施工调试</div></td>
+                            <td><div class="regular-box bg7 margin-l-r-10">协助开业</div></td>
+                            <td><div class="regular-box bg8 margin-l-r-10 margin-r-0" style="margin-right:0;">运营支持</div></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--哈蓓亲子游-->
+    <div id="biz-cooper" name="biz-cooper" class="inner-anchor"></div>
+    <div class="bg-green">
+        <div class="title-box cb margin-b-0">
+            <span class="title"><span class="zh">业务合作</span></span>
+            <span class="title"><span class="en">BUSINESS COOPERATION</span></span>
+        </div>
+        <div id="habei" name="habei" class="inner-anchor"></div>
+        <div class="child-center ha">
+            <div class="content">
+                <div class="title">哈蓓亲子游</div>
+                <div class="art">
+                    <div class="left fl l-h-30 t-i-30">哈蓓亲子游是一个以3-12周岁新中产阶级亲子家庭为主角的全新概念亲子游项目。哈蓓强调“learn by playing、learn
+                        by
+                        doing”的核心价值理念，以拟人化的原创卡通形象为故事主角，精心规划了各类农场情境项目，可以让孩子们与小动物嬉戏，与四季花草为伴，在快乐的玩耍中，充分释放孩子的自然天性，并通过各类生态认知、农耕渔猎体验、园艺手工艺等教育元素，以寓教于乐的方式提升儿童“手、脑、身、心”综合素质，收获爱与成就感。
+                    </div>
+                    <div class="right fr font-26">
+                        <div id="slider-habei">
+                            <img src="/assets/image/website/biz/1.jpg"/>
+                            <img class="hide" src="/assets/image/website/biz/2.jpg"/>
+                            <img class="hide" src="/assets/image/website/biz/3.jpg"/>
+                            <img class="hide" src="/assets/image/website/biz/4.jpg"/>
+                            <img class="hide" src="/assets/image/website/biz/5.jpg"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--商务合作-->
+    <div id="biz-cooperate" name="biz-cooperate" class="inner-anchor"></div>
+    <div class="bg-blue">
+        <!--<div class="title-box cb font-22 font-w-400 margin-b-0">
+            商务合作
+        </div>-->
+        <div class="child-center ha">
+            <div class="content">
+                <div class="title">动物巡游</div>
+                <div class="margin-t-40"><img src="/assets/image/website/biz/cooper/1.jpg"></div>
+                <div class="l-h-24 tx-center margin-t-20">
+                    哈泥天空农场有羊驼、矮脚马、牦牛、迷你猪、山羊等动物，并配备有专业的动物饲养人员。<br/>
+                    合作的客户有银泰城、in77、龙湖天街、龙湖地产、印象城、恒隆广场、融创等。
+                </div>
+                <div align="center" class="ma margin-t-10 tx-center" ><img src="/assets/image/website/biz/cooper/1.png"></div>
+
+                <div class="title margin-t-60">农场主题美陈</div>
+                <div class="margin-t-40"><img src="/assets/image/website/biz/cooper/2.jpg"></div>
+                <div class="l-h-24 tx-center margin-t-20">
+                    哈泥天空农场有一支从事农场主题美陈设计和布置的专业软装团队。<br/>
+                    合作的客户有龙湖天街、银泰城、印象城、龙湖地产。
+                </div>
+                <div align="center" class="ma margin-t-10 tx-center" ><img src="/assets/image/website/biz/cooper/2.png"></div>
+
+                <div class="title margin-t-60">农场主题活动策划</div>
+                <div class="margin-t-40"><img src="/assets/image/website/biz/cooper/3.jpg"></div>
+                <div class="margin-t-20"><table><tr>
+                    <td width="280" align="center">小丑气球魔术表演</td>
+                    <td width="280" align="center">"万圣节"化妆走秀表演</td>
+                    <td width="280" align="center">城西银泰大中庭"中秋玉兔"活动</td>
+                </tr></table></div>
+                <div class="margin-t-20"><img src="/assets/image/website/biz/cooper/4.jpg"></div>
+                <div class="margin-t-20"><table><tr>
+                    <td width="280" align="center">冰雪奇缘主题生日party</td>
+                    <td width="280" align="center">"粮食日"亲子割水稻活动</td>
+                    <td width="280" align="center">"植物小侦探"游戏活动</td>
+                </tr></table></div>
+
+                <div class="tx-center margin-t-40">哈泥天空农场有一支强大的农场主题活动策划和执行团队。</div>
+                <div align="center" class="ma margin-t-10 tx-center"><img src="/assets/image/website/biz/cooper/3.png"></div>
+
+            </div>
+        </div>
+    </div>
+
+    #parse("website/common/foot.html")
+</div>
+</body>
+</html>
+<script src="https://cdn.bootcss.com/jquery-nivoslider/3.2/jquery.nivo.slider.min.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+
+        $('#pro-cooper .margin-t-50').css('font-family','"Microsoft Yahei", "微软雅黑"');
+        $('#pro-cooper .v-txt').css('font-family','"Microsoft Yahei", "微软雅黑"');
+
+        slideHabei();
+
+        $.ajax({
+            url: '/getSliderImgs',
+            type: 'GET',
+            dataType: 'json',
+            success: function (resp) {
+                var urls = new Array();
+                if (resp.success && resp.data.length > 0) {
+                    var html = '';
+                    for (var i = 0; i < resp.data.length; i++) {
+                        var url = resp.data[i].url;
+                        if (url != null && url != '') {
+                            urls.push(url);
+                            if(i == 0){
+                                html += '<img width="100%" src="' + resp.data[i].url + '"/>';
+                                continue;
+                            }
+                            if(i > 0){
+                                html += '<img width="100%" class="hide" src="' + resp.data[i].url + '"/>';
+                            }
+//                            $('#slide-img'+(i+1)).attr('src', url);
+                        }
+                    }
+                    if(urls.length > 0){
+                        $('#slider').html('');
+                        $('#slider').html(html);
+                    }
+                }
+
+                $('.nivo-control').html('');
+                if (urls.length > 1) {
+                    slide();
+//                    setTimeout(slide, 3000);
+                }
+                console.info('urls.length:'+urls.length)
+            }
+        });
+
+    });
+
+    function slide() {
+        $('#slider').nivoSlider({
+            directionNav: false, //是否显示方向箭头
+            pauseOnHover: true  //鼠标移上去是否暂停
+        });
+        $('.nivo-control').html('&bull;&nbsp;');
+    }
+
+    function slideHabei() {
+        $('#slider-habei').nivoSlider({
+            directionNav: false, //是否显示方向箭头
+            pauseOnHover: true,  //鼠标移上去是否暂停
+            controlNav:false,
+            afterLoad: function () {
+//                $('div.art .right .nivo-controlNav').css({});
+//                $('div.art .right .nivo-controlNav a.nivo-control').html('&bull;&nbsp;');
+            }
+        });
+    }
+</script>

@@ -1,0 +1,110 @@
+.container {
+    /*width: 1440px;*/
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 1281px) {
+    .container {
+        width: 1280px;
+        /*width: 100%;*/
+    }
+}
+
+@media only screen and (min-width: 1282px) and (max-width: 1366px) {
+    .container {
+        width: 1366px;
+        /*width: 100%;*/
+    }
+}
+
+@media only screen and (min-width: 1367px) {
+    .container {
+        width: 1440px;
+    }
+}
+
+@font-face {
+    /*font-family: 'yuanti';   !*字体名称*!*/
+    /*src: url('/assets/fonts/website/Yuanti-SC-Light.ttf'); !* IE9 Compat Modes *!*/
+    /*src: url('/assets/fonts/website/yuanti.eot?#iefix') format('embedded-opentype'), !* IE6-IE8 *!*/
+    /*url('/assets/fonts/website/yuanti.woff') format('woff'), !* Modern Browsers *!*/
+    /*url('/assets/fonts/website/yuanti.ttf')  format('truetype'), !* Safari, Android, iOS *!*/
+    /*url('/assets/fonts/website/yuanti.svg#YourWebFontName') format('svg'); !* Legacy iOS *!*/
+}
+
+body {
+    /*overflow-x: scroll;*/
+    /*overflow-y: hidden;*/
+    color: #2a2a2a;
+    background-color: #fafafa;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: "Yuanti SC", "幼圆", "YouYuan", YouYuan, "PingFang SC", "Microsoft Yahei", "微软雅黑", STHeiti, "华文细黑", sans-serif;
+    /*font-family:"Microsoft Yahei", "微软雅黑", "华文细黑", STHeiti, sans-serif;*/
+   /*word-spacing: 4px;*/
+    letter-spacing: 0.5px;
+    text-align: justify;
+}
+
+div {
+    height: auto;
+    overflow: hidden;
+    /*text-align: justify;*/
+}
+
+table {
+    boder: none;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    boder: 0 !important;
+}
+
+a {
+    color: #2a2a2a;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: #6ecce7
+}
+
+a:active {
+    text-decoration: none
+}
+
+a:visited {
+    text-decoration: none
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+}
+
+.transparent-back {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.inner-anchor {
+    position: relative;
+    top: -68px;
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+
+

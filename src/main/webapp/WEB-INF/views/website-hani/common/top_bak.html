@@ -1,0 +1,67 @@
+<div class="top ha">
+    <div class="header ha ma">
+        <div class="logo fl">
+            <a href="/"><img src="/assets/image/website/logo.svg"/></a>
+        </div>
+        <div class="fr" id="nav-banner">
+            <a id="index-a" href="/">首页</a>
+            <a href="/farmcase/list">农场案例</a>
+            <a href="/cooperation/cooperate">项目合作</a>
+            <a id="biz-nav-a">
+                <!--业务合作-->
+                <div>业务合作</div>
+                <div id="biz-nav-sub" class="sub-nav ha hide">
+                    <span onclick="goHabei()" class="tx-center">哈蓓亲子游</span>
+                    <span onclick="goCooperate()" class="tx-center">商务合作</span>
+                </div>
+            </a>
+            <a href="/about/us">关于我们</a>
+            <!--<ul>
+                <li class="tx-center"><a href="/index">首页</a></li>
+                <li class="tx-center"><a href="/farmcase/list">农场案例</a></li>
+                <li class="tx-center"><a href="/cooperation/cooperate">项目合作</a></li>
+                <li id="biz-nav-li" class="tx-center">
+                    <a id="biz-nav" href="/business/habei">业务合作</a>
+                    <div id="biz-nav-sub" class="sub-nav ha hide">
+                        <span onclick="javascript:window.location.href='/business/habei'" class="tx-center">哈蓓亲子游</span>
+                        <span onclick="javascript:window.location.href='/business/cooperate'" class="tx-center">商务合作</span>
+                    </div>
+                </li>
+                <li class="tx-center"><a href="/about/us">关于我们</a></li>
+            </ul>-->
+        </div>
+    </div>
+</div>
+<script>
+    var habeiUrl = '/business/habei';
+    var cooUrl = '/business/cooperate';
+
+    $(function () {
+
+        window.onload = function highThis() {
+            highURL("nav-banner", "active", "a");
+        }
+
+        var currentLink = window.location.pathname;
+        if (currentLink.indexOf(habeiUrl) > -1 || currentLink.indexOf(cooUrl) > -1) {
+            $('#biz-nav-a').addClass('active');
+        }
+        if (currentLink == '/' || currentLink == '' || currentLink.indexOf('/index') > -1) {
+            $('#index-a').addClass('active')
+        }
+
+        $('#biz-nav-a').mouseenter(function () {
+            $('#biz-nav-sub').slideDown();
+        }).mouseleave(function () {
+            $('#biz-nav-sub').slideUp();
+        });
+    });
+
+    function goHabei() {
+        window.location.href = habeiUrl;
+    }
+
+    function goCooperate() {
+        window.location.href = cooUrl;
+    }
+</script>
