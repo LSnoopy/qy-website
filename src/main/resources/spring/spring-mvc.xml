@@ -93,5 +93,6 @@
     <!-- 处理静态资源请求 -->
     <mvc:resources mapping="/assets/**" location="/assets/"/>
     <mvc:resources mapping="/upload/**" location="/upload/"/>
+    <mvc:resources mapping="/mbg/**" location="/mbg/"/>
 
 </beans>
