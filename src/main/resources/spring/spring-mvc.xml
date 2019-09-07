@@ -76,6 +76,7 @@
                 <value>/console/</value>
                 <value>/console/index</value>
                 <value>/console/login</value>
+                <value>/console/news/get</value>
             </set>
         </property>
     </bean>

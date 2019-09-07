@@ -27,9 +27,84 @@
     <!-- END PAGE LEVEL PLUGIN STYLES -->
     <!-- BEGIN THEME STYLES -->
     <link href="assets/onepage2/css/layout.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/onepage2/css/custom.css" rel="stylesheet" type="text/css"/>
+    <!--<link href="assets/onepage2/css/custom.css" rel="stylesheet" type="text/css"/>-->
     <!-- END THEME STYLES -->
     <link rel="shortcut icon" href="favicon.ico"/>
+
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        ol, ul {
+            list-style: none;
+            display: block;
+        }
+
+        fieldset, img {
+            border: 0px;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .yb_conct {
+            position: fixed;
+            z-index: 9999999;
+            top: 200px;
+            right: -127px;
+            cursor: pointer;
+            transition: all .3s ease;
+        }
+
+        .yb_bar .yb_top {
+            background: #ff4a00 url(images/fixCont.png) no-repeat 0 0;
+        }
+
+        .yb_bar .yb_phone {
+            background: #ff4a00 url(images/fixCont.png) no-repeat 0 -57px;
+        }
+
+        .yb_bar .yb_QQ {
+            text-indent: 0;
+            background: #ff4a00 url(images/fixCont.png) no-repeat 0 -113px;
+        }
+
+        .yb_bar .yb_ercode {
+            background: #ff4a00 url(images/fixCont.png) no-repeat 0 -169px;
+        }
+
+        .yb_QQ a {
+            display: block;
+            text-indent: 54px;
+            width: 100%;
+            height: 100%;
+            color: #fff;
+        }
+
+        .hd_qr {
+            padding: 0 29px 25px 29px;
+        }
+
+        .yb_bar ul li {
+            width: 180px;
+            height: 53px;
+            font: 16px/53px 'Microsoft YaHei';
+            color: #fff;
+            text-indent: 54px;
+            margin-bottom: 3px;
+            border-radius: 3px;
+            transition: all .5s ease;
+            overflow: hidden;
+        }
+
+        .newsDetail {
+
+        }
+    </style>
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -78,9 +153,9 @@
                     <li class="page-scroll">
                         <a href="#clients">联系我们</a>
                     </li>
-                    <li class="page-scroll">
+                    <!--<li class="page-scroll">
                         <a href="#portfolio">登录</a>
-                    </li>
+                    </li>-->
 
                 </ul>
             </div>
@@ -141,7 +216,8 @@
             <div class="item carousel-item-one active" style="background: url(images/bg_slider1.jpg) no-repeat center;">
                 <div class="container" style="text-align: center;">
 
-                    <a href="#" class="animate-delay btn-brd-white " data-animation="animated fadeInUp">立即开户</a>
+                    <a href="http://c.dgbx.ae/index.php?g=user&m=register&a=index&rc=d6166" target="_blank"
+                       class="animate-delay btn-brd-white " data-animation="animated fadeInUp">立即开户</a>
                 </div>
             </div>
 
@@ -278,7 +354,6 @@
                                            data-page-list="[10, 25, 50, 100, ALL]"
                                            data-show-footer="false"
                                            data-side-pagination="server"
-                                           data-response-handler="responseHandler"
                                            data-sort-name="create_time"
                                            data-sort-order="desc"
                                            data-click-to-select="true"
@@ -324,7 +399,9 @@
                                 *不支持Windows XP/2003/Vista.</h6>
                             <p>
                                 <a href="DGB.exe" target="_blank" class="animate-delay btn-brd-white"
-                                   data-animation="animated fadeInUp" style="margin-top:0px;">下载信管家</a>
+                                   data-animation="animated fadeInUp" style="margin-top:0px;">下载信管家PC版</a>
+                                <a href="DGB.apk" target="_blank" class="animate-delay btn-brd-white"
+                                   data-animation="animated fadeInUp" style="margin-top:0px;">下载信管家安卓版</a>
                             </p>
                         </div>
                     </div>
@@ -358,7 +435,7 @@
 
                 <div class="row" style="margin-top:20px;">
 
-                    <div class="col-sm-7">
+                    <!--<div class="col-sm-7">
                         <div class="services sm-margin-bottom-100" style="width:80%;margin:0 auto;">
                             <form>
                                 <div class="form-group">
@@ -384,8 +461,8 @@
                             </form>
 
                         </div>
-                    </div>
-                    <div class="col-sm-5">
+                    </div>-->
+                    <div class="col-sm-12">
                         <div class="services sm-margin-bottom-100">
 
                             <ul>
@@ -460,14 +537,38 @@
     <!-- END CONTACT SECTION -->
 </div>
 <!-- END MAIN LAYOUT -->
-<a href="#intro" class="go2top"><i class="fa fa-arrow-up"></i></a>
+<!--<a href="#intro" class="go2top"><i class="fa fa-arrow-up"></i></a>-->
 
-<div style="position: fixed; top:20%;right: 2%;">
-    <ul>
-        <li><a target="_blank" href="tencent://message/?uin=979568975&Site=http://vps.shuidazhe.com&Menu=yes">PC版</a>
-        </li>
-        <li><a href="#intro">返回顶部</a></li>
-    </ul>
+
+<div class="yb_conct" style="right: -127px;">
+    <div class="yb_bar">
+        <ul>
+            <li class="yb_top">返回顶部</li>
+            <li class="yb_phone">15868417844</li>
+            <li class="yb_QQ">
+                <a href="tencent://Message/?Uin=1392109438" title="即刻发送您的需求">在线开户</a>
+            </li>
+            <li class="yb_ercode" style="height: 53px;text-align: center;">经纪人二维码 <br>
+                <img class="hd_qr" src="images/qrcode.jpg" style="width:180px;height:160px"
+                     alt="联系经纪人">
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div id="newsDetail"
+     style="position: fixed; z-index: 999;width: 100%;height: 100%;left: 0;top:10%;display: none;
+     background-color: #d0d0d0;
+     padding-top:40px;">
+
+    <div style="width: 1000px;height: 600px;
+     overflow-x: hidden;overflow-y: scroll;padding:20px;margin: auto;background: #FFFFFF;opacity:1">
+        <span style="display: block; padding: 0;font-size: 16px;float: right;">
+            <a href="javascript:closeWindow('newsDetail')">关闭</a>
+        </span>
+        <section style="display: block;clear: both;"></section>
+    </div>
+
 </div>
 
 <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
@@ -504,7 +605,25 @@
 <script>
     jQuery(document).ready(function () {
         Layout.init();
+
+        $(".yb_conct").hover(function () {
+            $(".yb_conct").css("right", "5px");
+            $(".yb_bar .yb_ercode").css('height', '200px');
+        }, function () {
+            $(".yb_conct").css("right", "-127px");
+            $(".yb_bar .yb_ercode").css('height', '53px');
+        });
+        // 返回顶部
+        $(".yb_top").click(function () {
+            $("html,body").animate({
+                'scrollTop': '0px'
+            }, 300)
+        });
     });
+
+    function closeWindow(id) {
+        $('#' + id).hide();
+    }
 </script>
 <!-- END JAVASCRIPTS -->
 </body>
