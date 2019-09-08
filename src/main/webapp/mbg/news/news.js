@@ -35,10 +35,10 @@ function detail(id) {
     var row = $table.bootstrapTable('getRowByUniqueId', id);
     console.info(row);
     var html = row.coverImgUrl != '' ? '<img width="240" height="160" src="' + row.coverImgUrl + '" />' : '';
-    html += '<h4 style="font-size: 18px;font-weight: bold;line-height: 1.5;">标题：' + row.title + '</h4>';
+    html += '<div style="text-align: center;"><h4 style="font-size: 18px;font-weight: bold;line-height: 1.5;">' + row.title + '</h4></div>';
     var s = row.source != null ? row.source.length > 0 ? row.source : '-' : '-';
     // html += '<h6><p>来源：' + s + '</p></h6>';
-    html += '<span class="font-12">创建时间：' + getLocalTime(row.createTime, 4) + '</span>';
+    html += '<span class="font-12">' + getLocalTime(row.createTime, 4) + '</span>';
     // html += '<br/><span class="font-12">置顶：' + booleanCommonFormat(row.topFlag) + '&nbsp;&nbsp;显示：' + booleanCommonFormat(row.showFlag) + '</span>';
     html += '<br/><br/>';
     html += row.content;
